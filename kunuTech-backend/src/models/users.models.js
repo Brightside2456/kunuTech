@@ -12,7 +12,7 @@ const userSchema =  z.object({
 
 const leaderBoardSchema = z.object({
     user_id: z.string(),
-    points
+    points: z.number(),
     last_updated: z.date()
 })
 

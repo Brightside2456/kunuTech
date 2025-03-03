@@ -1,0 +1,29 @@
+/users/{userId}
+ full_name: string
+ email: email
+ phone_number: string
+ 2
+ KunuTech waste management
+user_type: "user" | "collector" | "admin"
+ points: number
+ created_at: timestamp
+ /waste_bins/{binId}
+ location: { latitude: number, longitude: number }
+ fill_level: number 0100
+ status: "empty" | "filling" | "full" | "needs_maintenance"
+ last_collected: timestamp
+ /waste_collections/{collectionId}
+ bin_id: string (ref: waste_bins)
+ collector_id: string (ref: users)
+ scheduled_time: timestamp
+ completion_status: "pending" | "completed" | "missed"
+ collected_at: timestamp
+ /recycling_activities/{activityId}
+ user_id: string (ref: users)
+ material_type: string
+ weight: number (kg)
+ points_earned: number
+ recycled_at: timestamp
+ /leaderboard/{userId}
+ points: number
+ last_updated: timestamp

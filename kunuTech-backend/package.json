@@ -8,5 +8,24 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "zod": "^3.24.2"
-  }
+  },
+  "name": "kunutech-backend",
+  "version": "1.0.0",
+  "description": "Backend for Smart Waste management System",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/app.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brightside2456/kunuTech.git"
+  },
+  "author": "kunuTech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brightside2456/kunuTech/issues"
+  },
+  "homepage": "https://github.com/Brightside2456/kunuTech#readme"
 }

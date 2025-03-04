@@ -18,6 +18,11 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => {
+    console.log("Works!!")
+    res.json({message: "Server works"})
+})
+
 
 app.use('/api/auth', authRoutes);
 app.use('/api/bins', binRoutes);

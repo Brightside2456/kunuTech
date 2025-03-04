@@ -10,7 +10,6 @@ admin.initializeApp({
   databaseURL: FS_URL
 });
 
-
 const db = getFirestore();
 
 module.exports = db;

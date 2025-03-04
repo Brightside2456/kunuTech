@@ -1,0 +1,86 @@
+### User Registration (Signup)
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "Bernard Mensah",
+  "email": "bernard@example.com",
+  "phone_number": "+233555123456",
+  "password": "securepassword",
+  "user_type": "user"
+}
+
+### User Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "bernard@example.com",
+  "password": "securepassword"
+}
+
+###
+POST http://localhost:3000/api/bins/add HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJLWEp6S21VSG5zMjc1b2diUHpwayIsImlhdCI6MTc0MTA0OTU5MywiZXhwIjoxNzQxMDUzMTkzfQ.OzoAGICrqjXwyw1la46jhPNZ5BSwwO0q7PufnjgdmFQ
+
+{
+  "location": {
+    "latitude": 5.6037,
+    "longitude": -0.1870
+  },
+  "fill_level": 0,
+  "status": "empty",
+  "last_collected": "2025-03-01T08:30:00Z"
+}
+
+### Get Nearby Waste Bins
+GET http://localhost:3000/api/bins/nearby?lat=5.6037&lng=-0.1870
+
+### Update Bin Fill Level
+POST http://localhost:3000/api/bins/update
+Content-Type: application/json
+
+{
+  "bin_id": "101",
+  "fill_level": 85
+}
+
+### Get Collection Schedule for a User
+GET http://localhost:3000/api/collections/schedule?user_id=1
+Authorization: Bearer 
+
+### Assign Collector to Bin
+POST http://localhost:3000/api/collections/assign
+Content-Type: application/json
+Authorization: Bearer <your_jwt_token>
+
+{
+  "collector_id": "5",
+  "bin_id": "101",
+  "scheduled_time": "2025-03-01T08:30:00Z"
+}
+
+### Mark Collection as Completed
+POST http://localhost:3000/api/collections/complete
+Content-Type: application/json
+Authorization: Bearer <your_jwt_token>
+
+{
+  "collection_id": "201",
+  "collector_id": "5"
+}
+
+### Log Recycling Activity
+POST http://localhost:3000/api/recycle/log
+Content-Type: application/json
+Authorization: Bearer <your_jwt_token>
+
+{
+  "user_id": "1",
+  "material_type": "Plastic Bottles",
+  "weight": 2.5
+}
+
+### Get Leaderboard
+GET http://localhost:3000/api/recycle/leaderboard
